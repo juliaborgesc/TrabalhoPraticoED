@@ -3,7 +3,7 @@
 
 // Mostra os dados de um paciente na tela
 void visualizar_paciente(Paciente paciente) {
-    printf("[Dados do Paciente]\n");
+    printf("\n[Dados do Paciente]\n");
     printf("ID: %d\n", paciente.id);
     printf("CPF: %s\n", paciente.cpf);
     printf("Nome: %s\n", paciente.nome);

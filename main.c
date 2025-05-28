@@ -5,7 +5,7 @@
 
  // Mostra o menu principal na tela
 void menu_principal() {
-     printf("[MENU]\n");
+     printf("\n[MENU]\n");
      printf("1 - Consultar paciente\n");
      //printf("2 - Atualizar paciente\n");
      //printf("3 - Excluir paciente\n");
@@ -19,7 +19,7 @@ void menu_principal() {
 int main() {
      BDPaciente bd;
      bd_iniciar(&bd); //Inicia com 0 pacientes
-     bd_arquivo(&bd, "bd_clinica.csv");
+     bd_arquivo(&bd, "bd_paciente.csv");
      char opcao;
      char entrada[50];
 

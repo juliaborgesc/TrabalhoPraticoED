@@ -16,6 +16,8 @@ void bd_arquivo(BDPaciente *bd, const char *bd_paciente_csv) {
     }
 
     char linha[256];
+    fgets(linha, sizeof(linha), arquivo); // Pula o cabeçalho
+
     while (fgets(linha, sizeof(linha), arquivo)) {
         if (bd->quantidade >= MAX_PACIENTES) {
             printf("Limite máximo de pacientes atingido.\n");
@@ -66,8 +68,6 @@ void consulta_cpf(BDPaciente *bd, const char *prefixo) {
 // Função que lista todos os pacientes
 void listar_pacientes(BDPaciente *bd) {
     printf("\n[Lista de Pacientes]\n");
-    printf("-------------------------------------------------------------\n");
-    printf("| ID | CPF           | Nome                | Idade | Cadastro   |\n");
     printf("-------------------------------------------------------------\n");
     for (int i = 0; i < bd->quantidade; i++) {
         visualizar_paciente(bd->pacientes[i]);

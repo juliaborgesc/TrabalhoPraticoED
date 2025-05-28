@@ -15,28 +15,32 @@ OBJS = $(SRCS:.c=.o)
 # Arquivos de cabeçalho
 HEADERS = clinica.h bd_clinica.h
 
+# Detecta o sistema operacional
+ifeq ($(OS),Windows_NT)
+    RM = del /Q
+    TARGET := $(TARGET).exe
+else
+    RM = rm -f
+endif
+
 # Regra padrão
 all: $(TARGET)
 
-# Regra para compilar o executável
+# Linkagem do executável
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
-# Regra genérica para compilar qualquer arquivo .c em .o
+# Compilação dos .o
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Regra para limpar os arquivos gerados
-clean:
-	del /Q $(OBJS) $(TARGET).exe 2>nul
-
-# Regra para rodar o programa
+# Rodar o programa
 run: $(TARGET)
 	./$(TARGET)
 
-# Dependências específicas (se necessário)
-main.o: main.c clinica.h bd_clinica.h
-clinica.o: clinica.c clinica.h
-bd_clinica.o: bd_clinica.c bd_clinica.h
-
-.PHONY: all clean run
+clean:
+ifeq ($(OS),Windows_NT)
+	- del /Q main.o clinica.o bd_clinica.o clinica.exe 2>nul || exit 0
+else
+	- rm -f main.o clinica.o bd_clinica.o clinica
+endif

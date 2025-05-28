@@ -14,7 +14,7 @@ typedef struct bdpaciente {
 // Inicializa o banco de dados
 void bd_iniciar(BDPaciente *bd);
 
-// Carrega dados do arquivo CSV (bd_clinica.csv)
+// Carrega dados do arquivo CSV (bd_paciente.csv)
 void bd_arquivo(BDPaciente *bd, const char *bd_paciente_csv);
 
 // Consulta paciente por nome (e prefixo)
