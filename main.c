@@ -3,6 +3,7 @@
 #include <string.h> 
 #include "bd_clinica.h"
 
+ // Mostra o menu principal na tela
 void menu_principal() {
      printf("[MENU]\n");
      printf("1 - Consultar paciente\n");
@@ -17,7 +18,7 @@ void menu_principal() {
 
 int main() {
      BDPaciente bd;
-     bd_iniciar(&bd);
+     bd_iniciar(&bd); //Inicia com 0 pacientes
      bd_arquivo(&bd, "bd_clinica.csv");
      char opcao;
      char entrada[50];
@@ -26,48 +27,43 @@ int main() {
           menu_principal();
           scanf(" %c", &opcao);
           
-          switch (opcao) {
-               case '1': {
-                    int menu_secundario;
-                    printf("[MENU]\n");
-                    printf("Como deseja consultar?\n");
-                    printf("1 - Por nome\n");
-                    printf("2 - Por CPF\n");
-                    printf("3 - Retornar ao menu principal\n");
-                    printf("Escolha uma opcao:\n ");
-                    scanf("%d", &menu_secundario);
-                    getchar();
+          if (opcao == '1') {
+               int menu_secundario;
+               printf("[CONSULTA DE PACIENTE]\n");
+               printf("1 - Consultar por nome\n");
+               printf("2 - Consultar por CPF\n");
+               printf("3 - Retornar ao menu principal\n");
+               printf("Escolha uma opcao:\n ");
+               scanf("%d", &menu_secundario);
+               getchar();
                     
-                    if (menu_secundario == 1) {
-                         printf("Digite o nome:\n ");
-                         fgets(entrada, sizeof(entrada), stdin);
-                         entrada[strcspn(entrada, "\n")] = '\0'; // Remove \n
-                         consulta_nome(&bd, entrada);
-                         break;
-                    } else if (menu_secundario == 2) {
-                         printf("Digite o CPF: ");
-                         fgets(entrada, sizeof(entrada), stdin);
-                         entrada[strcspn(entrada, "\n")] = '\0';
-                         consulta_cpf(&bd, entrada);
-                         break;
-                    } else if (menu_secundario == 3) {
-                         printf("Retornando ao menu principal...\n");
-                         break;
-                    } else {
-                         printf("Opcao inválida. Tente novamente.\n");
-                         break;
-                    }
-                    break;
-               }
-               case '5':
-                    listar_pacientes(&bd);
-                    break;
-               case 'Q':
-               case 'q':
-                    printf("Saindo...\n");
-                    break;
-               default:
+               if (menu_secundario == 1) {
+                    printf("Digite o nome:\n ");
+                    fgets(entrada, sizeof(entrada), stdin);
+                    entrada[strcspn(entrada, "\n")] = '\0'; // Remove \n
+                    consulta_nome(&bd, entrada);
+         
+               } else if (menu_secundario == 2) {
+                    printf("Digite o CPF: ");
+                    fgets(entrada, sizeof(entrada), stdin);
+                    entrada[strcspn(entrada, "\n")] = '\0';
+                    consulta_cpf(&bd, entrada);
+
+               } else if (menu_secundario == 3) {
+                    printf("Retornando ao menu principal...\n");
+
+               } else {
                     printf("Opcao inválida. Tente novamente.\n");
+               }
+
+          }else if (opcao == '5'){
+               listar_pacientes(&bd);
+
+          } else if (opcao == 'Q' || opcao == 'q') {
+               printf("Encerrando o programa...\n");
+
+          } else {
+               printf("Opção inválida. Tente de novo.\n");
           }
      } while (opcao != 'Q' && opcao != 'q');
      

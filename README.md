@@ -1,0 +1,1 @@
+Este é um trabalho prático da disciplina Estrutura de Dados.

@@ -2,8 +2,8 @@
 #define CLINICA_H
 
 
-typedef struct {
-    int id;
+typedef struct paciente {
+    int id; // Identificador único do paciente
     char cpf[15];
     char nome[50];
     int idade;
