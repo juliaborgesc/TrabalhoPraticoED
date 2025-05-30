@@ -6,16 +6,16 @@ Este trabalho consiste em implementar um sistema de gerenciamento de dados de pa
 
 O Projeto conta com os seguintes arquivos: 
 
-**main.c** -	Contém o menu principal e secundário.
-**clinica.h/c** - 	Define a *struct* Paciente e função de exibição de pacientes.
-**bd_clinica.h/c** - Define a *struct* BDPaciente, declara as funções e gerencia o banco de dados em memória.
-**bd_paciente.csv** - Arquivo CSV com os dados dos pacientes.
-**Makefile** -  Especifica os passos necessários para compilar e executar o programa.
+- **main.c** -	Contém o menu principal e secundário.    
+- **clinica.h/c** - 	Define a *struct* Paciente e função de exibição de pacientes.    
+- **bd_clinica.h/c** - Define a *struct* BDPaciente, declara as funções e gerencia o banco de dados em memória.    
+- **bd_paciente.csv** - Arquivo CSV com os dados dos pacientes.    
+- **Makefile** -  Especifica os passos necessários para compilar e executar o programa.     
 
 ## TADs (Tipos Abstratos de Dados)
 
-**Paciente** - A estrutura Paciente armazena os dados: id, cpf, nome, idade e data de cadastro. 
-**BDPaciente** - É uma abstração para o armazenamento e a manipulação dos dados dos pacientes. Recebe o número maximo de pacientes e tem um contador para gerenciar registros.
+- **Paciente** - A estrutura Paciente armazena os dados: id, cpf, nome, idade e data de cadastro.     
+- **BDPaciente** - É uma abstração para o armazenamento e a manipulação dos dados dos pacientes. Recebe o número maximo de pacientes e tem um contador para gerenciar registros.    
 
 
 # Como executar o programa
