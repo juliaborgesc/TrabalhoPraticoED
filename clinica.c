@@ -1,7 +1,7 @@
 #include "clinica.h"
 #include <stdio.h>
 
-// Mostra os dados de um paciente na tela
+/* Mostra os dados de um paciente na tela */
 void visualizar_paciente(Paciente paciente) {
     printf("\n[Dados do Paciente]\n");
     printf("ID: %d\n", paciente.id);

@@ -3,22 +3,22 @@
 #include <string.h> 
 #include "bd_clinica.h"
 
- // Mostra o menu principal na tela
+/* Mostra o menu principal na tela */
 void menu_principal() {
      printf("\n[MENU]\n");
      printf("1 - Consultar paciente\n");
-     //printf("2 - Atualizar paciente\n");
-     //printf("3 - Excluir paciente\n");
-     //printf("4 - Inserir pacientes\n");
-     printf("5 - Listar pacientes\n");
-     printf("Q - Sair\n");
+     /* printf("2 - Atualizar paciente\n"); */
+     /* printf("3 - Excluir paciente\n"); */
+     /* printf("4 - Inserir pacientes\n"); */
+     /* printf("5 - Listar pacientes\n"); */
+     printf("Q - Sair\n"); 
      printf("Escolha uma opcao:\n ");
 
 }
 
 int main() {
      BDPaciente bd;
-     bd_iniciar(&bd); //Inicia com 0 pacientes
+     bd_iniciar(&bd); /* Inicia com 0 pacientes */
      bd_arquivo(&bd, "bd_paciente.csv");
      char opcao;
      char entrada[50];
@@ -40,7 +40,7 @@ int main() {
                if (menu_secundario == 1) {
                     printf("Digite o nome:\n ");
                     fgets(entrada, sizeof(entrada), stdin);
-                    entrada[strcspn(entrada, "\n")] = '\0'; // Remove \n
+                    entrada[strcspn(entrada, "\n")] = '\0'; /* Remove \n */
                     consulta_nome(&bd, entrada);
          
                } else if (menu_secundario == 2) {
