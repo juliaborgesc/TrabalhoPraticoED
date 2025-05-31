@@ -28,9 +28,5 @@ Primeiramente é válido dizer que o programa foi feito em Windows, mas pensado 
 git clone https://github.com/juliaborgesc/TrabalhoPraticoED.git
 cd TrabalhoPraticoED-P1
 
-# Compile o programa
+# Compile e execute o programa
 make
-
-# Execute
-./clinica       # Linux/MacOS
-./clinica.exe   # Windows
