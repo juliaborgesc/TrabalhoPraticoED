@@ -4,13 +4,13 @@
 /* Estrutura do paciente */
 typedef struct paciente {
     int id; /* Identificador único do paciente */
-    char cpf[15];
-    char nome[50];
-    int idade;
+    char cpf[15]; /* CPF do paciente no formato XXX.XXX.XXX-XX */
+    char nome[50]; /* Nome completo do paciente */
+    int idade; /* Idade do paciente */
     char data_cadastro[11]; /* Formato AAAA-MM-DD */
-} Paciente;
+} Paciente; /* Nome da estrutura */
 
-/* Função que mostra os dados do paciente */
+/* Declaração da função que imprime os dados do paciente */
 void visualizar_paciente(Paciente paciente);
 
 #endif

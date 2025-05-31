@@ -1,46 +1,37 @@
-# Compilador e flags
+# Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11 -I.
-LDFLAGS = 
+CFLAGS = -Wall 
 
-# Nome do executável
+# Executable name
 TARGET = clinica
 
-# Arquivos fonte
+# Source files
 SRCS = main.c clinica.c bd_clinica.c
 
-# Arquivos objeto (gerados automaticamente a partir dos .c)
+# Object files
 OBJS = $(SRCS:.c=.o)
 
-# Arquivos de cabeçalho
-HEADERS = clinica.h bd_clinica.h
+# Phony targetsz
+.PHONY: all compile run clean
 
-# Detecta o sistema operacional
-ifeq ($(OS),Windows_NT)
-    RM = del /Q
-    TARGET := $(TARGET).exe
-else
-    RM = rm -f
-endif
+# Default target (compile and run)
+all: compile run
 
-# Regra padrão
-all: $(TARGET)
+# Explicit compile target (produces the target program)
+compile: $(TARGET)
 
-# Linkagem do executável
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
-
-# Compilação dos .o
-%.o: %.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Rodar o programa
+# Run the executable
 run: $(TARGET)
 	./$(TARGET)
 
+# Clean up
 clean:
-ifeq ($(OS),Windows_NT)
-	- del /Q main.o clinica.o bd_clinica.o clinica.exe 2>nul || exit 0
-else
-	- rm -f main.o clinica.o bd_clinica.o clinica
-endif
+	rm -f $(OBJS) $(TARGET)
+
+# Compile source files into object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Link object files to create the executable
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)

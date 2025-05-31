@@ -4,16 +4,15 @@
 #include "clinica.h"
 
 /* Número máximo de pacientes */
-#define MAX_PACIENTES 20 
+#define MAX_PACIENTES 50 
 
 /* Estrutura referente ao banco de dados do paciente */
 typedef struct bdpaciente {
-    Paciente pacientes[MAX_PACIENTES];
-    int quantidade;
-} BDPaciente; /* TAD */
+    Paciente pacientes[MAX_PACIENTES]; /* Vetor de pacientes */
+    int quantidade; /* Contador de pacientes cadastrados */
+} BDPaciente; /* Nome da estrutura */
 
 /* Declaração das funções utilizadas em bd_clinica.c */
-
 /* Inicializa o banco de dados */
 void bd_iniciar(BDPaciente *bd);
 
