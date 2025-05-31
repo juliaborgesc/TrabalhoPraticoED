@@ -5,7 +5,7 @@
 typedef struct paciente {
     int id; /* Identificador único do paciente */
     char cpf[15]; /* CPF do paciente no formato XXX.XXX.XXX-XX */
-    char nome[50]; /* Nome completo do paciente */
+    char nome[80]; /* Nome completo do paciente */
     int idade; /* Idade do paciente */
     char data_cadastro[11]; /* Formato AAAA-MM-DD */
 } Paciente; /* Nome da estrutura */
